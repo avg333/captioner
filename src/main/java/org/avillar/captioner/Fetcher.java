@@ -26,7 +26,10 @@ final class Fetcher {
               HttpRequest.newBuilder().uri(URI.create(url)).build(),
               HttpResponse.BodyHandlers.ofString())
           .body();
-    } catch (IOException | InterruptedException e) {
+    } catch (IOException e) {
+      throw new ConnectionException();
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
       throw new ConnectionException();
     }
   }

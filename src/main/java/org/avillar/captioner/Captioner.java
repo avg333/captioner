@@ -19,16 +19,36 @@ import org.avillar.captioner.errors.NoLangCaptionsException;
 /** This class is responsible for getting the captions from a YouTube video. */
 public class Captioner {
 
+  /**
+   * Get the captions from a YouTube video in any available languages.
+   *
+   * @param videoID the video ID
+   * @return the captions
+   */
   public List<Caption> getCaptionsFromVideo(final String videoID) {
     return this.getCaptionsFromVideo(videoID, ALL_LANGUAGES);
   }
 
+  /**
+   * Get the captions from a YouTube video in a specific language.
+   *
+   * @param videoID the video ID
+   * @param lang the language to search for
+   * @return the captions
+   */
   public List<Caption> getCaptionsFromVideo(final String videoID, final String lang) {
     final List<String> langs = new ArrayList<>(1);
     langs.add(lang);
     return this.getCaptionsFromVideo(videoID, langs);
   }
 
+  /**
+   * Get the captions from a YouTube video in a list of languages in priority order.
+   *
+   * @param videoID the video ID
+   * @param langs the languages to search for in priority order
+   * @return the captions
+   */
   public List<Caption> getCaptionsFromVideo(final String videoID, final List<String> langs) {
     videoIdValidation(videoID);
     langsValidation(langs);
