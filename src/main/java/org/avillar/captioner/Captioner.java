@@ -80,8 +80,7 @@ public final class Captioner {
    * @param langs list of languages to search for in priority order
    * @return the track if found, empty otherwise
    */
-  private static Optional<Track> getTrack(
-      final List<Track> captionTracks, final List<String> langs) {
+  static Optional<Track> getTrack(final List<Track> captionTracks, final List<String> langs) {
     for (final String lang : langs) {
       for (final Track track : captionTracks) {
         if (track.languageCode().equals(lang)) {
