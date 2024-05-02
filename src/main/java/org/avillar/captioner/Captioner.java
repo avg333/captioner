@@ -65,7 +65,7 @@ public final class Captioner {
 
     final Optional<Track> track = getTrack(captionTracksData, langs);
     if (track.isEmpty()) {
-      throw new NoLangCaptionsException(videoID, langs.getFirst());
+      throw new NoLangCaptionsException(videoID, langs);
     }
 
     final String transcript = fetch(track.get().baseUrl());

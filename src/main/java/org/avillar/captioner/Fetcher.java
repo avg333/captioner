@@ -27,6 +27,7 @@ final class Fetcher {
               HttpResponse.BodyHandlers.ofString())
           .body();
     } catch (IOException e) {
+      // TODO Catch more specific exceptions
       throw new ConnectionException();
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();
