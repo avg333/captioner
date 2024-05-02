@@ -17,7 +17,10 @@ import org.avillar.captioner.errors.NoCaptionsException;
 import org.avillar.captioner.errors.NoLangCaptionsException;
 
 /** This class is responsible for getting the captions from a YouTube video. */
-public class Captioner {
+public final class Captioner {
+
+  /** Private constructor to prevent instantiation. */
+  private Captioner() {}
 
   /**
    * Get the captions from a YouTube video in any available languages.
@@ -25,8 +28,8 @@ public class Captioner {
    * @param videoID the video ID
    * @return the captions
    */
-  public List<Caption> getCaptionsFromVideo(final String videoID) {
-    return this.getCaptionsFromVideo(videoID, ALL_LANGUAGES);
+  public static List<Caption> getCaptionsFromVideo(final String videoID) {
+    return getCaptionsFromVideo(videoID, ALL_LANGUAGES);
   }
 
   /**
@@ -36,10 +39,10 @@ public class Captioner {
    * @param lang the language to search for
    * @return the captions
    */
-  public List<Caption> getCaptionsFromVideo(final String videoID, final String lang) {
+  public static List<Caption> getCaptionsFromVideo(final String videoID, final String lang) {
     final List<String> langs = new ArrayList<>(1);
     langs.add(lang);
-    return this.getCaptionsFromVideo(videoID, langs);
+    return getCaptionsFromVideo(videoID, langs);
   }
 
   /**
@@ -49,7 +52,7 @@ public class Captioner {
    * @param langs the languages to search for in priority order
    * @return the captions
    */
-  public List<Caption> getCaptionsFromVideo(final String videoID, final List<String> langs) {
+  public static List<Caption> getCaptionsFromVideo(final String videoID, final List<String> langs) {
     videoIdValidation(videoID);
     langsValidation(langs);
 
@@ -77,7 +80,8 @@ public class Captioner {
    * @param langs list of languages to search for in priority order
    * @return the track if found, empty otherwise
    */
-  private Optional<Track> getTrack(final List<Track> captionTracks, final List<String> langs) {
+  private static Optional<Track> getTrack(
+      final List<Track> captionTracks, final List<String> langs) {
     for (final String lang : langs) {
       for (final Track track : captionTracks) {
         if (track.languageCode().equals(lang)) {

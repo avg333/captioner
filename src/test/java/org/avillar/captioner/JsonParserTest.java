@@ -28,7 +28,7 @@ class JsonParserTest {
     assertThat(tracks.getFirst())
         .extracting("baseUrl", "vssId", "languageCode", "kind", "isTranslatable", "trackName")
         .containsExactly(
-            "https://www.youtube.com/api/timedtext?v=uM_6r68f6wY&ei=S-4zZt71Nsn3xN8Pz_uFiAk&caps=asr&opi=112496729&xoaf=5&hl=es&ip=0.0.0.0&ipbits=0&expire=1714704571&sparams=ip,ipbits,expire,v,ei,caps,opi,xoaf&signature=10FF27BA58F5255DBD84AEA4B1BFC05874B1F5DF.59F4A5F6ABF874462CED95F954D9201A6602E6D4&key=yt8&kind=asr&lang=es",
+            "https://www.youtube.com/api/timedtext?v=uM_6r68f6wY&ei=KfszZqi5CffXxN8PvamriAc&caps=asr&opi=112496729&xoaf=5&hl=es&ip=0.0.0.0&ipbits=0&expire=1714707865&sparams=ip,ipbits,expire,v,ei,caps,opi,xoaf&signature=AB4A324D5230FD6C995CCFA747778DA13F0455B8.71AFBCBED037CCA2A4838BB0557F1A72372F2D67&key=yt8&kind=asr&lang=es",
             "a.es",
             "es",
             "asr",
