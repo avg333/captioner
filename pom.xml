@@ -79,4 +79,12 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub avg333 Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/avg333/captioner</url>
+    </repository>
+  </distributionManagement>
 </project>
